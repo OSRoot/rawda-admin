@@ -1,0 +1,7 @@
+{
+  "name": "rawda-admin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
