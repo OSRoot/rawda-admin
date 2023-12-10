@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  padding: 16px;
+}
+.monthly {
+  margin-bottom: 16px;
+  width: 100%;
+  background: var(--bg);
+  display: flex;
+  border-radius: 12px;
+  padding: 16px;
+  .info {
+    flex: 1;
+  }
+  .edit {
+    span {
+      border: 1px solid var(--ion-pink);
+      padding: 14px 24px;
+      color: var(--ion-pink);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 125% */
+      border-radius: 12px;
+      &:active {
+        background: var(--ion-bg-pink);
+      }
+    }
+    // flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+}
+
+.container-sub{
+  // padding: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .type-service {
+      align-self: stretch;
+
+      ion-text {
+      color: rgba(34, 30, 32, 0.6);
+      text-align: right;
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: "regular";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px; /* 150% */
+      letter-spacing: 0.2px;
+      }
+      .selection {
+          position: relative;
+          font-family: "regular";
+          margin-top: 8px;
+          padding-inline: 16px;
+          width: 100%;
+          border-radius: 12px;
+          border: 1px solid rgba(0, 0, 0, 0.32);
+          background: rgba(0, 0, 0, 0.03);
+          ion-select::part(icon){
+              display: none;
+          }
+          ion-select{
+              font-family: "regular" !important;
+              color: #231F20;
+              text-align: right;
+              font-feature-settings: 'clig' off, 'liga' off;
+              // font-family: Baloo Bhaijaan 2;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 24px; /* 150% */
+              letter-spacing: 0.2px;
+          }
+          ion-icon{
+              position: absolute;
+              left: 16px;
+              top: 16px;
+          }
+      }
+}
+.price-service{
+  // margin-top: 16px;
+
+  .price{
+      position: relative;
+      margin-top: 8px;
+      padding-inline: 16px;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.32);
+      background: rgba(0, 0, 0, 0.03);
+      input{
+          padding: 12px;
+          border: none;
+          outline: none;
+          background: transparent;
+      }
+      .currency{
+          position: absolute;
+          left: 12px;
+          top: 12px;
+      }
+  }
+}
+}
+
+
+ion-footer {
+display: flex !important;
+justify-content: space-evenly;
+align-items: center;
+gap: 8px;
+padding: 16px;
+// --box-shadow: none;
+--box-shadow: 0px 4px 11px 0px rgba(246, 74, 145, 0.50);    // padding: 8px 16px;
+
+padding-inline: 16px;
+.add-st {
+  width: 70%;
+  padding: 12px 0px;
+
+  ion-text {
+    padding: 10px 20px;
+  }
+
+}
+.back-btn{
+    font-family: "regular";
+    border-radius: 30%;
+    ion-text {
+        padding: 10px 20px;
+      }
+
+}
+
+}

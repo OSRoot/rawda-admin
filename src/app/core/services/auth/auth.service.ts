@@ -41,7 +41,6 @@ export class AuthService {
     // #####################################################################
 
   async logOut(): Promise<void> {
-    await this.storage.remove('isAuthenticated')
     this.isAuthenticated.next(false)
     await this.helper.StartLoading({});
     await this.removeCredentials();
@@ -54,8 +53,6 @@ export class AuthService {
   // this.helper.showLoading();
   return this.http.post(this.BASEAPI+endPoint, form).pipe(
     switchMap((data: any) => {
-      console.log(` from login fn:`);
-      console.log(data);
 
       const { access_token, refresh_token } = data;
       return from(Promise.all([
@@ -64,7 +61,6 @@ export class AuthService {
       ])).pipe(
         tap(() => {
           localStorage.setItem(ACCESS_TOKEN, access_token);
-          this.isAuthenticated.next(true);
           this.router.navigateByUrl('/home',{replaceUrl:true});
           this.setUser();
         })
@@ -77,7 +73,6 @@ export class AuthService {
       }
       else {
         this.helper.PresentGenericToaster({message:error.error.message})
-        console.log('Error:', error);
       }
       return throwError(error);
     })
@@ -89,18 +84,19 @@ setUser(){
     async res=>{
       await this.storage.set('user',res);
     },
-    err=>{}
+    err=>{
+      console.log(err);
+    }
   )
 }
 ///////////////////////////////////////////////////////////////////
 getRefreshToken(): Observable<any> {
+  console.log('i came here');
+
   const PROMISE: Promise<string> = new Promise(async (resolve, reject) => {
     const token: string = await this.storage.get(REFRESH_TOKEN);
-    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTQwMjJkZmYyY2U3NDYwM2NiMDE0ZDEiLCJpYXQiOjE2OTg4Mjg5MzF9.laT5GdqyZv8XpSO71rstCiotoHHPnjWr3ywsI1YVvBI'
     this.data.getData(`/auth/refresh-token?token=${token}`).subscribe(
       (res: any) => {
-        console.log(res.access_token);
-
         localStorage.setItem(ACCESS_TOKEN, res.access_token);
         resolve(res.access_token);
       },

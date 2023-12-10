@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HelpersService } from 'src/app/core/services/helpers/helpers.service';
 
 @Component({
   selector: 'app-suggestions',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuggestionsPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private helpers:HelpersService,
 
-  ngOnInit() {
+  ) { }
+
+  ngOnInit(
+  ) {
+  return true
   }
+  navigate(page:string,dir:string,path?:string){
 
+    this.helpers.navigate(page,dir,path)
+  }
+  //////////////////////////////////////////////////////////////////
+navBack(){
+  this.helpers.navBack()
+}
 }

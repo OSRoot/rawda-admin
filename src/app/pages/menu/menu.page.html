@@ -1,13 +1,52 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>menu</ion-title>
+    <ion-buttons slot="start">
+      <ion-button class="w40px" (click)="navBack()">
+        <img src="../../../assets/icon/icons8_back 1.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" class="font-reg-24">القائمة</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content>
+  <div class="container">
+    <h1>
+      <ion-text>الروضة</ion-text>
+    </h1>
+    <ion-list lines="none">
+
+      <ion-item [button]="true" (click)="saveContactsInfoModal()">
+        <ion-label>الإعدادات</ion-label>
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-item>
+
+
+      <!-- <ion-item [button]="true" >
+        <ion-label>اقتراحاتك</ion-label>
+        <ion-icon name="information-circle-outline"></ion-icon>
+      </ion-item> -->
+
+
+
+      <!-- <ion-item [button]="true" (click)="suspend()">
+        <ion-label>تعطيل الحساب</ion-label>
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-item> -->
+
+
+
+      <ion-item [button]="true" >
+        <ion-label>تسجيل خروج</ion-label>
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-item>
+
+
+    </ion-list>
+
+
+  </div>
+
+
 </ion-content>

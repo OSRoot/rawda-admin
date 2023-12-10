@@ -21,12 +21,21 @@
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+
+  <div class="users">
+    <h3>
+      <ion-text color="primary">
+        <h1>عدد المستخدمون</h1>
+      </ion-text>
+      <ion-text class="ion-text-center" color="primary">10</ion-text>
+    </h3>
+  </div>
   <!-- /////////////////////////// Menu //////////////////////////////////////////////////// -->
  <!-- /////////////////////////// Menu //////////////////////////////////////////////////// -->
  <div class="container">
   <div class="item" *ngFor="let item of homeMenu" (click)="navigate(item.path||'/home', 'forward')">
-    <ion-img [src]="item.icon" alt="children"></ion-img>
-    <ion-text>{{item.title}}</ion-text>
+      <ion-icon [name]="item.icon"></ion-icon>
+      <ion-text>{{item.title}}</ion-text>
   </div>
  </div>
 

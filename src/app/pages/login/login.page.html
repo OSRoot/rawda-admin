@@ -1,0 +1,60 @@
+<ion-content >
+
+  <div class="container">
+
+    <!-- <ion-item lines="none" class="ion-justify-content-center" style="--background:transparent ;">
+    </ion-item > -->
+    <div class="header">
+      <h1>تطبيق الروضة</h1>
+    </div>
+    <form [formGroup]="login_form">
+      <div class="form-item username">
+
+          <ion-item lines="none" class="ion-margin-top">
+            <ion-icon name="person" slot="start" color="primary" class="ion-padding-end"></ion-icon>
+            <ion-input formControlName="username" type="text" placeholder="ادخل اسم المسخدم" (keyup.enter)="login()"></ion-input>
+          </ion-item>
+
+          <div *ngIf="login_form.get('username')?.invalid && login_form.get('username')?.touched" class="font-reg fb-14 error-message">
+            <div *ngIf="login_form.get('username')?.errors?.['minlength'] || login_form.get('username')?.errors?.['required']">اسم المستخدم قصير</div>
+        </div>
+      </div>
+
+
+
+      <div class="form-item password">
+        <ion-item lines="none" class="ion-margin-top">
+          <ion-icon name="lock-closed" slot="start" color="primary" class="ion-padding-end"></ion-icon>
+          <ion-input formControlName="password" type="password" placeholder="ادخل كلمة المرور" (keyup.enter)="login()"></ion-input>
+        </ion-item>
+
+        <div *ngIf="login_form.get('password')?.invalid && login_form.get('password')?.touched" class="font-reg fb-14 error-message">
+          <div *ngIf="login_form.get('password')?.errors?.['required']">كلمة المرور مطلوبة</div>
+        </div>
+    </div>
+    </form>
+      <!-- <div class="btns m-top-16 ion-padding-top">
+        <div class="my-main-btn" (click)="login()">
+          <span>الدخول</span>
+        </div>
+      </div> -->
+      <!-- <ion-button class="login-btn ion-padding-top ion-margin-top" expand="block" mode="ios" (click)="login()">الدخول</ion-button> -->
+      <!-- <ion-item class="new-acc" [button]="true" lines="none" >
+        <ion-label color="primary">حساب جديد</ion-label>
+        <ion-icon color="primary" name="create-outline"></ion-icon>
+      </ion-item> -->
+
+    </div>
+
+  <ion-footer class="ion-no-border">
+    <!-- <div class="my-main-btn" >
+      <span>الدخول</span>
+    </div> -->
+    <ion-button expand="block" class="main-btn" (click)="login()">الدخول</ion-button>
+    <ion-button style="box-shadow:none" expand="block" class="" fill="clear" (click)="navigate('register',Dir.Forward)">
+      <ion-label color="primary">حساب جديد</ion-label>
+      <ion-icon color="primary" name="create-outline"></ion-icon>
+    </ion-button>
+  </ion-footer>
+
+</ion-content>

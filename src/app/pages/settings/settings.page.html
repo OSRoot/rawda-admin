@@ -1,13 +1,62 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-button class="w40px" (click)="dismiss()">
+        <img src="../../../assets/icon/icons8_back 1.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" class="font-reg-24">الإعدادات</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="container">
+    <!-- <app-spinner *ngIf="isLoading"></app-spinner> -->
+  <!-- Total Every month -->
+  <form [formGroup]="form">
+  <div class="container-sub font-reg">
+      <div class="type-service price-service">
+        <ion-text> رقم الهاتف </ion-text>
+        <div class="price">
+          <input formControlName="phone" type="tel" placeholder="ادخل رقم الهاتف"/>
+        </div>
+      </div>
+
+      <div class="m-top-16 type-service price-service">
+        <div class="type-service price-service">
+          <ion-text> رقم الواتس اب </ion-text>
+          <div class="price">
+            <input formControlName="whatsapp" type="tel" placeholder="ادخل رقم الواتس اب"/>
+          </div>
+      </div>
+
+      <div class="m-top-16 type-service price-service">
+        <div class="type-service price-service">
+          <ion-text> رابط الفيس بوك </ion-text>
+          <div class="price">
+            <input formControlName="facebook" type="text"placeholder="ادخل الرابط..."/>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+    </form>
+
+</div>
+
+
+<ion-footer class="ion-no-border">
+
+  <div class="btns">
+    <ion-button class="main-btn" (click)="saveContacts()">حفظ</ion-button>
+  </div>
+</ion-footer>
+
 </ion-content>
+
+

@@ -23,7 +23,7 @@ export class JwtInterceptor implements HttpInterceptor {
         if (err instanceof HttpErrorResponse) {
           switch (err.status) {
             case 401: // need to refresh Token
-              if (request.url.indexOf('login') > 0 || request.url.indexOf('register') > 0) return throwError(err);
+              if (request.url.indexOf('login-admin') > 0 || request.url.indexOf('register') > 0) return throwError(err);
               return this.handle401Error(request, next);
             case 403: // refresh Token Failed
               return this.handle403Error();
