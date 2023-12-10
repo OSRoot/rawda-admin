@@ -1,0 +1,45 @@
+.loading{
+  &::-webkit-scrollbar{
+    display: none;
+  }
+  animation: fadeIn;
+  animation-duration: 0.4s;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  position: fixed;
+    transition: 0.4s;
+    .overlay{
+      &::-webkit-scrollbar{
+        display: none;
+      }
+    display: flex; 
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000 !important;
+
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1);
+  width: 120vw;
+    height: 120vh;
+    transition: 0.4s;
+  .spinner{
+    &::-webkit-scrollbar{
+      display: none;
+    }
+    transition: 0.4s;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    border-radius: 12px;
+  }
+  }
+}

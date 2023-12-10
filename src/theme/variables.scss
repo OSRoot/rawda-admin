@@ -3,14 +3,47 @@
 
 /** Ionic CSS Variables **/
 :root {
-  /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  // frequently used colors;
+  --ion-pink:#F64A91;
+  --danger:#FF2C3C;
 
+  --success:#7CC444;
+  --warning:#FAE129;
+  --bg-pink:rgba(246, 74, 145, 0.09);
+  --ion-green:#2FBFA0;
+  --ion-color-gbg:#2FBFA0;
+  --ion-green-present:#7CC444;
+  --ion-yellow-late:#FAE129;
+  --ion-red-absent:#FF2C3C;
+  --ion-bg-pink:rgba(246, 74, 145, 0.12);
+  --bg-not-purple:rgba(221, 129, 255, 0.40);
+  --bg-green:rgba(124, 196, 68, 0.40);
+  --bg-green2:rgba(42, 167, 149, 0.40);;
+  --bg-yellow:rgba(250, 225, 41, 0.40);
+  --bg-pinkish:rgba(255, 44, 60, 0.40);
+  --bg-orange:rgba(252, 121, 0, 0.40);
+  --bg-purplish:rgba(100, 119, 255, 0.40);
+  --bg:#F5F5F5;
+
+  --ion-font-family :"regular"
+
+  /** primary **/
+  --ion-color-white:#ffffff;
+  // --ion-color-primary: #f64a923f;
+  --ion-color-primary: #F64A91;
+	--ion-color-primary-rgb: 246,74,145;
+	--ion-color-primary-contrast: #FFFFFF;
+	--ion-color-primary-contrast-rgb: 0,0,0;
+	--ion-color-primary-shade: #d84180;
+	--ion-color-primary-tint: #f75c9c;
+
+
+  --ion-color-bgpink: rgba(246, 74, 145, 0.12);
+  // --ion-color-primary-rgb: 56, 128, 255;
+  // --ion-color-primary-contrast: #ffffff;
+  // --ion-color-primary-contrast-rgb: 255, 255, 255;
+  // --ion-color-primary-shade: #3171e0;
+  // --ion-color-primary-tint: #4c8dff;
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
   --ion-color-secondary-rgb: 61, 194, 255;
@@ -28,9 +61,9 @@
   --ion-color-tertiary-tint: #6370ff;
 
   /** success **/
-  --ion-color-success: #2dd36f;
+  --ion-color-success: #2dd36f7e;
   --ion-color-success-rgb: 45, 211, 111;
-  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast: #f00;
   --ion-color-success-contrast-rgb: 255, 255, 255;
   --ion-color-success-shade: #28ba62;
   --ion-color-success-tint: #42d77d;
@@ -44,7 +77,7 @@
   --ion-color-warning-tint: #ffca22;
 
   /** danger **/
-  --ion-color-danger: #eb445a;
+  --ion-color-danger: #FF2C3C;
   --ion-color-danger-rgb: 235, 68, 90;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
@@ -76,13 +109,14 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
+// @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
 
-  body {
+  // body.dark {
+    body.light {
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -152,7 +186,7 @@
    * -------------------------------------------
    */
 
-  .ios body {
+  .ios body.dark {
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
 
@@ -196,7 +230,7 @@
    * -------------------------------------------
    */
 
-  .md body {
+  .md body.light {
     --ion-background-color: #121212;
     --ion-background-color-rgb: 18,18,18;
 
@@ -233,10 +267,10 @@
 
     --ion-card-background: #1e1e1e;
   }
-}
+// }
 
 html {
-  /* 
+  /*
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */

@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+
+
+
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-padding-top">
+    <ion-buttons slot="end" >
+        <div class="bg-menu" (click)="navigate('menu',Dir.Forward)">
+
+          <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z" fill="#F64A91"/>
+            </svg>
+        </div>
+    </ion-buttons>
+    <ion-title class=" ion-padding-start f-size-24" slot="start" >
+      {{user?.displayName}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="ion-padding-bottom" id="main-content ">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- /////////////////////////// Menu //////////////////////////////////////////////////// -->
+ <!-- /////////////////////////// Menu //////////////////////////////////////////////////// -->
+ <div class="container">
+  <div class="item" *ngFor="let item of homeMenu" (click)="navigate(item.path||'/home', 'forward')">
+    <ion-img [src]="item.icon" alt="children"></ion-img>
+    <ion-text>{{item.title}}</ion-text>
   </div>
+ </div>
+
 </ion-content>
