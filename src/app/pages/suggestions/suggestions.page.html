@@ -9,10 +9,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">suggestions</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+
+
+  <ion-segment [value]="segment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="read">
+      <ion-label>مقروء</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="unread">
+      <ion-label>
+        <ion-badge color="dark">{{unreadCount}}</ion-badge>
+        غير مقروء
+      </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div class="segment-view">
+
+    <div class="read" *ngIf="segment === 'read'">
+      <div class="message border-shadow" *ngFor="let message of suggestions">
+        <span> {{message.message}} </span>
+      </div>
+    </div>
+
+    <div class="unread" *ngIf="segment === 'unread'">
+      <div class="message border-shadow" *ngFor="let message of suggestions">
+        <span> {{message.message}} </span>
+      </div>
+    </div>
+
+
+  </div>
 </ion-content>

@@ -1,0 +1,26 @@
+ion-segment{
+
+
+  background: var(--ion-bg-pink);
+
+  ion-segment-button{
+    
+    --background-checked: var(--ion-pink);
+    --color-checked:#fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+  }
+}
+.read,.unread{
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  .message{
+    background: var(--bg);
+    padding: 16px;
+    border-radius: 12px;
+  }
+}

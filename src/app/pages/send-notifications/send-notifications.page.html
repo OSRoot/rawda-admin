@@ -9,10 +9,70 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">send-notifications</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- <app-spinner *ngIf="isLoading"></app-spinner> -->
+  <div class="container">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- Student List -->
+    <div class="list-container">
+      <h3 class="head">قائمة الطلاب</h3>
+
+
+      <!-- Search and filter here -->
+
+      <div class="searcher">
+        <div class="search-side">
+          <input type="search" (input)="getDataAgain($event)" (keyup.enter)="handleSearchText($event)" [(ngModel)]="searchText" placeholder="ابحث بالهاتف ..">
+        <ion-icon name="search-outline" class="icon-search"></ion-icon>
+        </div>
+
+      </div>
+
+
+      <!-- Start Of Student Summary -->
+      <div class="list-items">
+        <div class="item-list" *ngFor="let user of users"
+        [ngClass]="{'inactive':user.active===false}"
+        >
+          <div class="top">
+            <div class="img">
+              <img  src="../../../assets/images/user1.png" alt="">
+        </div>
+        <div class="info">
+          <h3>{{user.displayName}}</h3>
+          <p>{{user.username}}</p>
+          <p>{{user.phone}}</p>
+        </div>
+       </div>
+       <div class="down">
+        <ion-button class="cancel-btn" fill="outline" shape="round" (click)="sendNotificationModal(user)"> إرسال إشعارات</ion-button>
+        </div>
+      </div>
+      <div class="emptyView directionCol" *ngIf="emptyView">
+        <span>لا يوجد مستخدمون</span>
+      </div>
+
+      <div class="emptyView directionCol"  *ngIf="isLoading">
+      <ion-spinner class="spinners"></ion-spinner>
+
+      </div>
+
+      <div class="emptyView" *ngIf="errorView">
+        <span>حدث خطأ ما!</span>
+      </div>
+    </div>
+    <!--  -->
+      <!--#####################################################################################  -->
+      <!-- End of Student Summary -->
+
+    </div>
+
+
+    <ion-infinite-scroll (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingText="تحميل..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
 </ion-content>

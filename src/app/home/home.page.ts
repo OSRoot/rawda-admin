@@ -14,7 +14,8 @@ import { StatusBar, StatusBarStyle } from '@capacitor/status-bar';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  user : any = {}
+  user : any = {};
+  users:any[]=[]
   Dir=Dir;
 
   homeMenu: HomeMenu[] = [
@@ -48,7 +49,9 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(): any {
-    return true
+    this.getUsers()
+    // return true
+
   }
   // async checkActive(){
   //   this.data.getData('/users/activation').subscribe(
@@ -84,6 +87,13 @@ export class HomePage implements OnInit {
 
   }
 
+  getUsers(){
+    this.data.getData('/users?skip=0').subscribe(
+      (res:any)=>{
+          this.users = res;
+      }
+    )
+  }
 
   navigate(page: string, dir: string, path?: string) {
     this.helpers.navigate(page, dir, path);

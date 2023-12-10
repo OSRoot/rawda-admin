@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="w40px" (click)="navBack()">
+        <img src="../../../assets/icon/icons8_back 1.svg" />
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" class="font-reg-24">{{user?.displayName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container">
+    <div class="user-box border-shadow">
+      <ion-item lines="none">
+        <ion-icon name="person"  class="ion-padding-end"></ion-icon>
+        <ion-label>
+          <h3>
+            <ion-text> {{user?.displayName}} </ion-text>
+          </h3>
+          <p>
+            <ion-text> {{user?.username}} </ion-text>
+          </p>
+          <p>
+            <ion-text> {{user?.phone}} </ion-text>
+          </p>
+        </ion-label>
+
+      </ion-item>
+        <h3 class="ion-text-center">انضم منذ: {{user?.createdAt| date:'dd/MM/yyyy'}}</h3>
+    </div>
+
+    <ion-item lines="none" class="toggle-item">
+      <ion-label position="fixed">حالة الحساب</ion-label>
+      <p > مفعل</p>
+      <ion-toggle (ionChange)="toggleAccoutState($event)" [checked]="isChecked"></ion-toggle>
+      <p class="ion-padding-start">غير مفعل</p>
+    </ion-item>
+  </div>
+</ion-content>

@@ -17,4 +17,5 @@ export enum Page {
     LateOnes = 'late-comers',
     Bills ='bills',
     ServiceDetails = 'service-details',
+    Users='users'
 }
