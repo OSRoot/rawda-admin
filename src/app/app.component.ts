@@ -23,14 +23,14 @@ export class AppComponent {
 
   async initStorage(){
     this.storage.create();
-    this.checkUser()
+    // this.checkUser()
   }
 
   async checkUser():Promise<void | boolean> {
     const token = this.authService.accessToken;
     if(!token) return this.navCtrl.navigateRoot("/login");
-    this.navCtrl.navigateRoot("/home")
+    this.navCtrl.navigateRoot("/tabs")
   }
 
-  
+
 }

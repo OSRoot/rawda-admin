@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-button class="w40px" (click)="dismiss()">
         <img src="../../../assets/icon/icons8_back 1.svg" />
       </ion-button>
-    </ion-buttons>
-    <ion-title color="light" class="font-reg-24">الإعدادات</ion-title>
+    </ion-buttons> -->
+    <ion-title color="light" class="font-reg-24 ion-padding-start">الإعدادات</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -48,14 +48,10 @@
     </form>
 
 </div>
+<div class="btns ion-padding">
+  <ion-button class="main-btn" shape="round" mode="ios" (click)="saveContacts()">حفظ</ion-button>
+</div>
 
-
-<ion-footer class="ion-no-border">
-
-  <div class="btns">
-    <ion-button class="main-btn" (click)="saveContacts()">حفظ</ion-button>
-  </div>
-</ion-footer>
 
 </ion-content>
 

@@ -13,6 +13,8 @@ export class SuggestionsPage implements OnInit , OnDestroy {
   skip=0
   suggestions:any[] = [];
   unreadCount: any
+isLoading: any;
+errorView: any;
   constructor(
     private helpers:HelpersService,
     private data:DataService

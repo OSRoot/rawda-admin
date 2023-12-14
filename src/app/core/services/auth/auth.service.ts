@@ -61,7 +61,7 @@ export class AuthService {
       ])).pipe(
         tap(() => {
           localStorage.setItem(ACCESS_TOKEN, access_token);
-          this.router.navigateByUrl('/home',{replaceUrl:true});
+          this.router.navigateByUrl('/tabs',{replaceUrl:true});
           this.setUser();
         })
       );

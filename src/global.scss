@@ -721,7 +721,12 @@ ion-footer {
     flex: .7;
   }
 }
+  .btns {
+    width: 100% !important;
+    display: flex !important;
+    gap: 16px;
 
+  }
 ion-alert{
   margin: 0 !important;
   // direction: ltr !important;

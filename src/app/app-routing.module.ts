@@ -3,26 +3,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'tabs',
     pathMatch: 'full'
   },
-  {
-    path: 'send-notifications',
-    loadChildren: () => import('./pages/send-notifications/send-notifications.module').then( m => m.SendNotificationsPageModule)
-  },
-  {
-    path: 'users',
-    loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
-  },
-  {
-    path: 'suggestions',
-    loadChildren: () => import('./pages/suggestions/suggestions.module').then( m => m.SuggestionsPageModule)
-  },
+
   {
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
@@ -40,9 +29,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/user-details/user-details.module').then( m => m.UserDetailsPageModule)
   },
   {
-    path: 'add-notification',
-    loadChildren: () => import('./pages/add-notification/add-notification.module').then( m => m.AddNotificationPageModule)
+    path: 'users-options',
+    loadChildren: () => import('./pages/users-options/users-options.module').then( m => m.UsersOptionsPageModule)
   },
+
+
 ];
 
 @NgModule({
