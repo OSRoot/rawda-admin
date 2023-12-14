@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, ModalOptions } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/core/interfaces/user.interface';
+import { Page } from 'src/app/core/scripts/page';
 import { DataService } from 'src/app/core/services/data/data.service';
 import { HelpersService } from 'src/app/core/services/helpers/helpers.service';
+import { RefreshWatcherService } from 'src/app/core/services/refresh/refresh-watcher.service';
+import { AddNotificationPage } from '../add-notification/add-notification.page';
 
 @Component({
   selector: 'app-send-notifications',
@@ -13,16 +19,26 @@ export class SendNotificationsPage implements OnInit {  errorView: boolean=false
   isLoading:boolean=true;
   skip: number=0;
   searchText:string='';
-  users:any[]=[]
+  users:any[]=[];
+  subscription:Subscription|undefined
    constructor(
     private helpers:HelpersService,
-    private data:DataService
+    private data:DataService,
+    private refreshWatcher:RefreshWatcherService,
+    private modalCtrl:ModalController
 
   ) { }
 
   ngOnInit(
   ) {
     this.getData()
+    this.subscription = this.refreshWatcher.refreshObservable.subscribe(
+      page=>{
+        if (page === Page.SendNotifications){
+          this.getData();
+        }
+      }
+    )
   }
   navigate(page:string,dir:string,path?:string){
 
@@ -63,7 +79,17 @@ getEndpointAttend() {
     )
   }
   /////////////////////////////////////////////////////////////////////////
+async openSendNotificationModal(user:User){
+  const options : ModalOptions ={
+    component:AddNotificationPage,
+    componentProps:{
+      user:user
+    }
+  }
 
+  const modal = await this.modalCtrl.create(options);
+  await modal.present();
+}
 
   // #############################################################
   doRefresh(ev: any): void {

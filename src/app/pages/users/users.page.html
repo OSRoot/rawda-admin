@@ -33,7 +33,7 @@
 
     <!-- Students List  -->
     <div class="student-list  font-reg" >
-      <div class="list-item" *ngFor="let user of users;trackBy:trackByFn"
+      <div class="list-item animate__animated animate__fadeIn animate__faster" *ngFor="let user of users;trackBy:trackByFn"
       [ngClass]="{'inactive':user.active===false}"
 
        >

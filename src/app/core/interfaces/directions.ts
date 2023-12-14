@@ -1,4 +1,4 @@
-export enum Dir{
+export enum Dir {
     Forward = 'forward',
     Back = 'back',
     Root = 'root'

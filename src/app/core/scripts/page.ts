@@ -1,21 +1,4 @@
 export enum Page {
-    Students = 'students-list',
-    Employees = 'employees',
-    StudentDetails = 'student-details',
-    DailyAttendance = 'daily-attendane',
-    Services = 'services',
-    StudentsList = 'students-list',
-    Masareef = 'masareef',
-    Expenses='expenses',
-    ExpensesTypeAdd = 'expenses-type-add',
-    Settings='settings',
-    Subscription = 'subscription',
-    EditPlace = 'edit-places',
-    EditStep='edit-steps',
-    Service = 'service',
-    Expierd = 'expierd',
-    LateOnes = 'late-comers',
-    Bills ='bills',
-    ServiceDetails = 'service-details',
+    SendNotifications = 'send-notifications',
     Users='users'
 }
