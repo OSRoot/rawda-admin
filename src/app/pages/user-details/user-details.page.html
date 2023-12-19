@@ -1,14 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button class="w40px" (click)="navBack()">
-        <img src="../../../assets/icon/icons8_back 1.svg" />
+    <ion-buttons slot="end">
+      <ion-button class="w40px" (click)="popover.present()" id="user-options">
+        <ion-icon color="light" name="ellipsis-vertical" ></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title color="light" class="font-reg-24">{{user?.displayName}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button class="w40px"  (click)="navBack()">
+        <ion-icon color="light" name="chevron-forward" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="light" class="font-reg-24 ion-padding-start">{{user?.displayName}}</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-popover [dismissOnSelect]="true" #popover mode="ios" trigger="user-options">
+  <ng-template>
+    <ion-list lines="none">
 
+      <ion-item [button]="true" detail="false"
+      (click)="callPhone(user)"
+        >
+        <ion-label>اتصال</ion-label>
+      </ion-item>
+
+      <ion-item [button]="true" detail="false"
+      (click)="deactivateAcc(user)"
+        >
+        <ion-label>ايقاف الحساب</ion-label>
+      </ion-item>
+      <ion-item [button]="true" detail="false"
+      (click)="activateAcc(user)"
+        >
+        <ion-label>تفعيل الحساب</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-popover>
 <ion-content>
 
   <div class="container">
@@ -28,14 +55,45 @@
         </ion-label>
 
       </ion-item>
-        <p class="ion-text-center">انضم منذ: {{user?.createdAt| date:'dd/MM/yyyy'}}</p>
     </div>
 
-    <ion-item lines="none" class="toggle-item">
-      <ion-label position="fixed">حالة الحساب</ion-label>
-      <p > مفعل</p>
-      <ion-toggle class="animate__animated animate__fadeIn" (ionChange)="toggleAccoutState($event)" [checked]="isChecked"></ion-toggle>
-      <p class="ion-padding-start">غير مفعل</p>
+
+<div class="reports animate__animated animate__fadeIn">
+  <ion-list>
+
+    <ion-item>
+      <ion-label>عدد الطللاب</ion-label>
+      <ion-text>{{reports?.allStudents}}</ion-text>
     </ion-item>
+
+    <ion-item>
+      <ion-label>اللإشتراكات</ion-label>
+      <ion-text>{{reports?.subscriptions}}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>تم تحصيله</ion-label>
+      <ion-text>{{reports?.credit}}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>رواتب الموظفين</ion-label>
+      <ion-text>{{reports?.salaries}}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>الأرباح</ion-label>
+      <ion-text>{{reports?.profit}}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>الديون</ion-label>
+      <ion-text>{{reports?.debit}}</ion-text>
+    </ion-item>
+  </ion-list>
+
+</div>
+
+
+
   </div>
 </ion-content>

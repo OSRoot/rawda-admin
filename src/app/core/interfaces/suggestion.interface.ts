@@ -1,6 +1,6 @@
 export interface Suggestion{
   _id?:string;
-  title?:string;
+  message?:string;
   body?:string;
   seen?:boolean;
   created_at?:string;

@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-button class="w40px" (click)="navBack()">
         <img src="../../../assets/icon/icons8_back 1.svg" />
       </ion-button>
-    </ion-buttons>
-    <ion-title color="light" class="font-reg-24">الإقتراحات</ion-title>
+    </ion-buttons> -->
+    <ion-title color="light" class="font-reg-24 ion-padding-start">الإقتراحات</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,30 +13,28 @@
 
 
 
-  <!-- <div class="container2 segments font-reg">
+  <div class="container2 segments font-reg">
 
 
   <ion-segment [value]="segment"
     mode="ios"
     (ionChange)="segmentChanged($event)"
     [value]="segment">
-      <ion-segment-button value="read" [ngClass]="{ 'active': segment === 'read' }">
-        <ion-label>مقروء</ion-label>
-      </ion-segment-button>
       <ion-segment-button value="unread" [ngClass]="{ 'active': segment === 'unread' }">
-        <ion-label> غير مقروء</ion-label>
+        <ion-label>الإقتراحات</ion-label>
       </ion-segment-button>
+      <!-- <ion-segment-button value="unread" [ngClass]="{ 'active': segment === 'unread' }">
+        <ion-label> غير مقروء</ion-label>
+      </ion-segment-button> -->
     </ion-segment>
 </div>
- -->
-
 
 
   <div class="segment-view">
 
     <div class="read" *ngIf="segment === 'read'">
       <div class="message border-shadow" *ngFor="let message of suggestions">
-        <span> {{message.message}} </span>
+        <span> {{message?.message}} </span>
       </div>
     </div>
 
@@ -49,41 +47,6 @@
 
   </div>
 
-  <div class="list-items" *ngIf="segment==='unread'">
-    <div class="item-list" *ngFor="let sugg of suggestions"
-    >
-      <div class="top" >
-
-    <div class="info">
-      <h3>{{sugg.title}}
-        <ion-chip color="primary" class="ion-padding">
-          <span class="price ion-padding" >
-            {{sugg.body}}
-            <!-- <span *ngIf="student.sub===0">يومي</span>
-            <span *ngIf="student.sub===1">شهري</span>
-            <span *ngIf="student.sub===2">سنوي</span> -->
-          </span>
-        </ion-chip>
-      </h3>
-
-    </div>
-
-   </div>
-
-  </div>
-  <div class="emptyView directionCol" *ngIf="!suggestions?.length && !isLoading">
-    <span>لا يوجد طلاب</span>
-  </div>
-
-  <div class="emptyView directionCol"  *ngIf="isLoading">
-  <ion-spinner class="spinners"></ion-spinner>
-
-  </div>
-
-  <div class="emptyView" *ngIf="errorView">
-    <span>حدث خطأ ما!</span>
-  </div>
-  </div>
 
 
 

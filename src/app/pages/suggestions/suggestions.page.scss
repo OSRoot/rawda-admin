@@ -1,3 +1,6 @@
+ion-title{
+  padding-inline: 16px;
+}
 ion-segment{
 
 
@@ -15,6 +18,7 @@ ion-segment{
 }
 .read,.unread{
   padding: 16px;
+  padding-top:  0;
   display: flex;
   gap: 8px;
   flex-direction: column;
