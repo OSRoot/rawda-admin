@@ -86,7 +86,7 @@ export class UploadService {
     }
     const image = await Camera.getPhoto(options);
     console.log("🚀 ~ UploadService ~ takeAphoto ~ image:", image)
-    
+
     if (image){
       this.procesImage(image);
     }
@@ -96,7 +96,7 @@ export class UploadService {
     }
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+
   private procesImage(photo:Image):Image{
     const image:Image = {
       name: new Date().getTime()+`.${photo.format}`,
@@ -141,7 +141,7 @@ export class UploadService {
       },
       err=>{
         this.helpers.StopLoading()
-        
+
       }
     )
   }

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RawdaAdmin</string>
+    <string name="title_activity_main">RawdaAdmin</string>
+    <string name="package_name">com.mdsoft.rawda.admin</string>
+    <string name="custom_url_scheme">com.mdsoft.rawda.admin</string>
+</resources>
