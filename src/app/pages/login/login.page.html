@@ -32,6 +32,7 @@
           <div *ngIf="login_form.get('password')?.errors?.['required']">كلمة المرور مطلوبة</div>
         </div>
     </div>
+
     </form>
       <!-- <div class="btns m-top-16 ion-padding-top">
         <div class="my-main-btn" (click)="login()">
@@ -46,15 +47,16 @@
 
     </div>
 
+
   <ion-footer class="ion-no-border">
     <!-- <div class="my-main-btn" >
       <span>الدخول</span>
     </div> -->
     <ion-button expand="block" class="main-btn" (click)="login()">الدخول</ion-button>
-    <ion-button style="box-shadow:none" expand="block" class="" fill="clear" (click)="navigate('register',Dir.Forward)">
+    <!-- <ion-button style="box-shadow:none" expand="block" class="" fill="clear" (click)="navigate('register',Dir.Forward)">
       <ion-label color="primary">حساب جديد</ion-label>
       <ion-icon color="primary" name="create-outline"></ion-icon>
-    </ion-button>
+    </ion-button> -->
   </ion-footer>
 
 </ion-content>

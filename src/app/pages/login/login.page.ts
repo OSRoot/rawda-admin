@@ -38,8 +38,8 @@ export class LoginPage implements OnInit {
     await this.helpers.StartLoading({});
     if (this.login_form.invalid) {
         this.helpers.StopLoading();
-        this.helpers.PresentGenericToaster({message:'بيانات غير كاملة'})
-        return
+        this.helpers.PresentGenericToaster({message:'بيانات غير كاملة'});
+        return;
     }
     this.auth.login('/auth/login-admin', this.login_form.value).subscribe(
       res=>{
